@@ -3,10 +3,13 @@
     include 'model/pdo.php';
     include 'model/products.php';
     include 'model/categories.php';
+    include 'model/cart.php';
     include "view/header.php";
     include "global.php";
     include "model/account.php";
-
+    if(!isset($_SESSION['cart'])){
+        $_SESSION['cart'] = [];
+    }
     $prd_new = load_all_products_home();
     $cate_arr = load_list_cate();
     $prd_top = load_all_products_top();
@@ -117,6 +120,81 @@
             case 'qa':
                 include "view/qa.php";
                 break;
+   case 'cart':
+    if (isset($_POST['addCart'])) {
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $img = $_POST['img'];
+        $price = $_POST['price'];
+        $amount = 1;
+        $total = $amount * $price;
+
+        // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
+        $isExist = false;
+        foreach ($_SESSION['cart'] as $key => $cartItem) {
+            if ($cartItem[0] == $id) {
+                // Sản phẩm đã tồn tại trong giỏ hàng, tăng số lượng và cập nhật tổng tiền
+                $_SESSION['cart'][$key][4] += $amount;
+                $_SESSION['cart'][$key][5] = $_SESSION['cart'][$key][3] * $_SESSION['cart'][$key][4];
+                $isExist = true;
+                break;
+            }
+        }
+
+        // Nếu sản phẩm chưa tồn tại trong giỏ hàng, thêm sản phẩm mới vào giỏ hàng
+        if (!$isExist) {
+            $productCart = [
+                $id, $name, $img, $price, $amount, $total
+            ];
+            array_push($_SESSION['cart'], $productCart);
+        }
+    }
+    include "view/cart.php";
+    break;
+
+            case 'delCart':
+               if(isset($_GET['idCart'])){
+                 array_splice($_SESSION['cart'],$_GET['idCart'],1);
+               } else {
+                    
+                $_SESSION['cart'] = [];
+               }
+                header('location:index.php?act=cart');
+                break;
+            case 'bill':
+               
+                include "view/bill.php";
+                break;
+            case 'order':
+                if(isset($_POST['order'])) {
+                     $user_id = $_SESSION['user']['user_id'];
+                    $fullname = $_POST['fullname'];
+                    $address = $_POST['address'];
+                    $email = $_POST['email'];
+                
+                    $total = $_POST['total'];
+                    $user_id = $_SESSION['user']['user_id'];
+                    $totalOrder = totalOrder();
+                    $billID = insert_bill($user_id,$fullname,$address,$email,$totalOrder);
+
+                    foreach($_SESSION['cart'] as $cart){
+                        $pro_id =                         intval($cart[0]);
+
+                        $price =                        intval($cart[3]);
+
+                        $amount =                        intval($cart[4]);
+                        $billID =                        intval($billID);
+                        insert_bill_detail($pro_id,$price,$amount,$billID);
+                        header('location:index.php?act=finsh');
+
+                    }
+                    break;
+                  
+                }
+                case 'finsh':
+                    $info =  get_bill_detail();
+                    include "view/finsh.php";
+                    break;
         }
     }else{
         include "view/home.php";

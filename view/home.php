@@ -77,7 +77,15 @@
                                             <p>$'.$price.'</p>
                                         </div>
                                         <div class="prd-name">
+                                        
                                             <a href="'.$link_prd.'"> <h3>'.$prd_name.'</h3></a>
+                                            <form action="index.php?act=cart" method="post">
+                                            <input type="hidden" name="id" value="'.$pro_id.'">
+                                            <input type="hidden" name="name" value="'.$prd_name.'">
+                                            <input type="hidden" name="img" value="'.$img_prd.'">
+                                            <input type="hidden" name="price" value="'.$price.'">\
+                                            <input type="submit" name="addCart" class="btn btn-success" value="Thêm vào giỏ hàng ">
+                                          </form>
                                         </div>
                                     </div>
                                 </div>                               
@@ -85,6 +93,7 @@
                             }
                         ?>
                     </div>
+                  
                 </div>
             <?php
                 include 'right-box.php';
