@@ -228,6 +228,20 @@ select{
     
 }
 
+/* CART BTN */
+.button-cart button{
+    display: block;
+    max-width: 20%;
+    margin-bottom: 16px;
+}
+
+.button-cart a{
+    color: #fff;
+}
+  
+
+/* CART BTN */
+
 .form-sign .form-link a{
     color: #fff;
 }

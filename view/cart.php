@@ -16,7 +16,7 @@ $total_full = 0;
 foreach ($_SESSION['cart'] as $key => $cart) { 
     $total = $cart[3] * $cart[4];
     $total_full += $total;
-    $delCart = '<a href="index.php?act=delCart&idCart='.$key.'"><input type="button" >Xóa</a>';
+    $delCart = '<a class="btn btn-danger" href="index.php?act=delCart&idCart='.$key.'">Xóa</a>';
     ?>
     <div class="row">
         <div class="prd-img col-4">
@@ -42,25 +42,26 @@ foreach ($_SESSION['cart'] as $key => $cart) {
             </div>
             <div class="remove-item">
                 <!-- Nút xóa sản phẩm khỏi giỏ hàng -->
-                <?= $delCart; ?>
+                <?= $delCart ?>
             </div>
         </div>
     </div>
 <?php } ?>
 
-<!-- Hiển thị tổng tiền của toàn bộ giỏ hàng -->\
+<!-- Hiển thị tổng tiền của toàn bộ giỏ hàng -->
 
-<div class="row total-full">
+<div class="row total-full mt-3">
     <p>Tổng tiền của giỏ hàng: <span><?=$total_full?></span></p>
 
 </div>
+
 <?php
 if (isset($_SESSION['user'])) {
     // Nếu người dùng đã đăng nhập, hiển thị các nút "Đồng ý đặt hàng" và "Xóa giỏ hàng"
     echo '
-    <div class="row mb">
-        <a href="index.php?act=bill"><input type="button"> Đồng ý đặt hàng </a>
-        <a href="index.php?act=delCart"><input type="button">Xóa giỏ hàng</a>
+    <div class="button-cart">
+        <a class="btn btn-primary" href="index.php?act=bill">Đồng ý đặt hàng </a>
+        <a class="btn btn-danger" href="index.php?act=delCart">Xóa giỏ hàng</a>
     </div>
     ';
 } else {
@@ -69,25 +70,4 @@ if (isset($_SESSION['user'])) {
 }
 ?>
 
-<div class="container">
-    <div class="row">
-        <div class="box-left col-12">
-            <div class="prd-details">
-                
-                <div class="box-title">
-                <form action="index.php?act=order" method="post">
-  
 
-
-                </div>
-            </div>
-            <!-- Hiển thị các sản phẩm khác trong giỏ hàng -->
-            <!-- Thay thế đoạn dưới đây bằng mã PHP để hiển thị các sản phẩm khác trong giỏ hàng (nếu có) -->
-          
-            <!-- Kết thúc phần hiển thị các sản phẩm khác trong giỏ hàng -->
-        </div>
-        <?php
-            // Bỏ phần include 'right-box.php'; (đây có thể là sidebar hoặc các thông tin bổ sung không liên quan đến giỏ hàng)
-        ?>
-    </div>
-</div>

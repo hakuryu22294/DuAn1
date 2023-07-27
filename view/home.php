@@ -84,7 +84,7 @@
                                             <input type="hidden" name="name" value="'.$prd_name.'">
                                             <input type="hidden" name="img" value="'.$img_prd.'">
                                             <input type="hidden" name="price" value="'.$price.'">\
-                                            <input type="submit" name="addCart" class="btn btn-success" value="Thêm vào giỏ hàng ">
+                                            <input  type="submit" name="addCart" class="btn btn-success" value="Mua ngay">
                                           </form>
                                         </div>
                                     </div>
