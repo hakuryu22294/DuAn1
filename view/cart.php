@@ -13,9 +13,11 @@
                 <div class="box-details align-items-center">
                 <?php 
 $total_full = 0;
+$itemsCount = 0;
 foreach ($_SESSION['cart'] as $key => $cart) { 
     $total = $cart[3] * $cart[4];
     $total_full += $total;
+    $itemsCount += $cart[4];
     $delCart = '<a class="btn btn-danger" href="index.php?act=delCart&idCart='.$key.'">Xóa</a>';
     ?>
     <div class="row">
@@ -58,12 +60,16 @@ foreach ($_SESSION['cart'] as $key => $cart) {
 <?php
 if (isset($_SESSION['user'])) {
     // Nếu người dùng đã đăng nhập, hiển thị các nút "Đồng ý đặt hàng" và "Xóa giỏ hàng"
-    echo '
-    <div class="button-cart">
-        <a class="btn btn-primary" href="index.php?act=bill">Đồng ý đặt hàng </a>
-        <a class="btn btn-danger" href="index.php?act=delCart">Xóa giỏ hàng</a>
-    </div>
-    ';
+    if($itemsCount>0){
+        echo '
+        <div class="button-cart">
+            <a class="btn btn-primary" href="index.php?act=bill">Đồng ý đặt hàng </a>
+            <a class="btn btn-danger" href="index.php?act=delCart">Xóa giỏ hàng</a>
+        </div>
+        ';
+    }else{
+        echo "<p>Hiện không có sản phẩm nào trong giỏ. Vui lòng thêm sản phẩm để tiếp tục đặt hàng !</p>";
+    }
 } else {
     // Nếu người dùng chưa đăng nhập, hiển thị thông báo
     echo '<p>Vui lòng đăng nhập để đặt hàng.</p>';
