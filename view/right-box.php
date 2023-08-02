@@ -1,12 +1,8 @@
     <div class="box-right col-4">
         <div class="sign-in">
-            <div class="box-title row">
-                <div class="col-8">
-                    <h3>Đăng nhập</h3>
-                </div>
-                <div class="col-4">
-                    <a href=""><i class="fa fa-shopping-cart"></i></a>
-                </div>
+            <div class="box-title d-flex justify-content-betwee align-items-center">
+                <h3>Đăng nhập</h3>
+                <a href="" class="cart-icon"><i class="fa fa-shopping-cart"></i></a>
             </div>
             <?php
             if(isset($_SESSION['user'])){
