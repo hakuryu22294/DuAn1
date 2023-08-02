@@ -55,12 +55,39 @@
                 }
                 break;
             case 'register':
-                if((isset($_POST['register'])) && ($_POST['register'])){
+                $errors = array(); // Mảng để lưu trữ các lỗi kiểm tra
+
+                if (isset($_POST['register']) && ($_POST['register'])) {
                     $email = $_POST['email'];
                     $user = $_POST['user'];
                     $password = $_POST['password'];
-                    insert_acc($user,$password,$email);
-                    $inner = "Đăng ký thành công. Vui lòng đăng nhập";
+            
+                    // Kiểm tra email
+                    if (empty($email)) {
+                        $errors['email'] = "Email không được để trống.";
+                    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        $errors['email'] = "Email không hợp lệ.";
+                    }
+            
+                    // Kiểm tra tên đăng nhập
+                    if (empty($user)) {
+                        $errors['user'] = "Tên đăng nhập không được để trống.";
+                    } elseif (!preg_match("/^[a-zA-Z0-9_]+$/", $user)) {
+                        $errors['user'] = "Tên đăng nhập chỉ chấp nhận chữ, số và dấu gạch dưới.";
+                    }
+            
+                    // Kiểm tra mật khẩu
+                    if (empty($password)) {
+                        $errors['password'] = "Mật khẩu không được để trống.";
+                    } elseif (strlen($password) < 6) {
+                        $errors['password'] = "Mật khẩu phải có ít nhất 6 ký tự.";
+                    }
+            
+                    // Nếu không có lỗi, thêm tài khoản
+                    if (empty($errors)) {
+                        insert_acc($user, $password, $email);
+                        $inner = "Đăng ký thành công. Vui lòng đăng nhập";
+                    }
                 }
                 include "view/account/register.php";
                 break;

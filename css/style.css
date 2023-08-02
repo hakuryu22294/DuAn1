@@ -462,6 +462,18 @@ footer{
     padding: 20px 0;
 }
 
+.cart-icon{
+    color: #fff;
+}
+
+/* CONFIG */
+.form-res p.errors{
+    min-height: 26px;
+    color: #e53637;
+    margin-bottom: 0;
+    line-height: 26px;
+}
+
 /* .box-prd{
     margin-top: 24px;
     border-radius: 5px;
