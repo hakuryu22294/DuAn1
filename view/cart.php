@@ -75,5 +75,5 @@ if (isset($_SESSION['user'])) {
     echo '<p>Vui lòng đăng nhập để đặt hàng.</p>';
 }
 ?>
-
+<a href="home.php">Tiep Tuc Mua Hang</a>
 
