@@ -474,6 +474,25 @@ footer{
     line-height: 26px;
 }
 
+.cart-badge {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    color: #e53637;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #fff;
+    line-height: 20px;
+    text-align: center;
+  }
+.cart-icon {
+position: relative;
+}
+
+
 /* .box-prd{
     margin-top: 24px;
     border-radius: 5px;
