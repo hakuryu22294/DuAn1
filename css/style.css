@@ -444,7 +444,7 @@ footer{
 }
 
 .frmcontent table tbody td:first-child{
-    text-align: center;
+
 }
 
 .box-admin .notification{
@@ -492,6 +492,24 @@ footer{
 position: relative;
 }
 
+.total-full{
+    background-color: #e53637;
+    color: #fff;
+    line-height: 30px;
+    padding: 10px 20px;
+    max-width: max-content;
+    border-radius: 5px;
+    float: right;
+}
+
+.total-full p{
+    margin: 0;
+}
+
+p.warning{
+    color: #fff;
+    text-align: center;
+}
 
 /* .box-prd{
     margin-top: 24px;
