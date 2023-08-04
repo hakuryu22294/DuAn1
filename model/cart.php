@@ -26,4 +26,10 @@ function get_bill_detail() {
 
 }
 
+function getImgByID($id){
+    $sql = "SELECT img FROM products WHERE id_product = $id";
+    $img = pdo_query_one($sql);
+    return $img;
+}
+
 ?>
