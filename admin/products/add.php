@@ -1,12 +1,12 @@
 <div class="container">
     <div class="box-admin space">
         <div class="box-title">
-            <h2>THÊM MỚI SẢN PHẨM</h2>
+            <h2>Add new products</h2>
         </div>
         <div class="frmcontent">
             <form action="index.php?act=add-prd" method="post" enctype="multipart/form-data"> 
                 <div class="mb-4">
-                    <label class="form-label">Tên loại</label>
+                    <label class="form-label">Categories</label>
                     <select class="form-select" name="cate-id" id="">
                         <?php
                             foreach($cate_list as $cate){
@@ -17,19 +17,19 @@
                     </select>
                 </div>
                 <div class="mb-4">
-                    <label  class="form-label">Tên sản phẩm</label>
+                    <label  class="form-label">Name.</label>
                     <input type="text" name="prd_name" class="form-control">
                 </div>
                 <div class="mb-4">
-                    <label  class="form-label">Giá</label>
+                    <label  class="form-label">Price</label>
                     <input type="text" name="price" class="form-control">
                 </div>
                 <div class="mb-4">
-                    <label  class="form-label">Hình ảnh</label>
+                    <label  class="form-label">Image</label>
                     <input type="file" name="img" class="form-control">
                 </div>
                 <div class="mb-4">
-                    <label  class="form-label">Mô tả</label>
+                    <label  class="form-label">Description</label>
                     <textarea class="form-control" name="desc" id="" cols="20" rows="10"></textarea>
                 </div>
                 <div class="">
