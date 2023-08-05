@@ -13,12 +13,12 @@
 <div class="container">
     <div class="box-admin space">
         <div class="box-title">
-            <h2>CẬP NHẬT HÀNG HÓA</h2>
+            <h2>Cập Nhật Hàng Hoá</h2>
         </div>
         <div class="frmcontent">
             <form action="index.php?act=update-prd" method="post" enctype="multipart/form-data"> 
                 <div class="mb-4">
-                    <label class="form-label">Tên loại</label>
+                    <label class="form-label">Loại</label>
                     <select class="form-select" name="cate-id" id="">
                         <?php
                             foreach($cate_list as $cate){
