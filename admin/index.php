@@ -31,7 +31,7 @@
                         $inner = "Xóa thành công";
                         delete_cate($_GET['id']);
                     }else{
-                        $inner = "Vui lòng chuyển sản phẩm sang danh mục khác hoặc xóa sản phẩm trong danh mục để thực hiện chức năng này !";
+                        $inner = "Vui lòng chuyển sản phẩm sang danh mục khác hoặc xóa sản phẩm trong danh mục để thực hiện được chức năng này !";
                     }
                 }
                 $cate_list = load_list_cate();
