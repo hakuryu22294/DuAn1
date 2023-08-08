@@ -39,7 +39,7 @@
                     <a class="nav-link" href="#">Góp ý</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Hói đáp</a>
+                    <a class="nav-link" href="#">Hỏi đáp</a>
                   </li>
                 </ul>
               </div>
