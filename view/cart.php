@@ -47,23 +47,24 @@
             <div class="total-full">
                 <p>Tổng tiền: <span><?=$total_full?></span></p>
             </div>
-            <?php
-                if (isset($_SESSION['user'])) {
-                    // Nếu người dùng đã đăng nhập, hiển thị các nút "Đồng ý đặt hàng" và "Xóa giỏ hàng"
-                    if($itemsCount>0){
-                        echo '
-                        <div class="button-cart">
-                            <a class="btn btn-primary" href="index.php?act=bill">Đồng ý đặt hàng </a>
-                            <a class="btn btn-danger" href="index.php?act=delCart">Xóa giỏ hàng</a>
-                        </div>
-                        ';
-                    }else{
-                        echo "<p class='warning'>Hiện không có sản phẩm nào trong giỏ. Vui lòng thêm sản phẩm để tiếp tục đặt hàng !</p>";
+            <div class="button-cart">
+                <?php
+                    if (isset($_SESSION['user'])) {
+                        // Nếu người dùng đã đăng nhập, hiển thị các nút "Đồng ý đặt hàng" và "Xóa giỏ hàng"
+                        if($itemsCount>0){
+                            echo '
+                                <a class="btn btn-primary" href="index.php?act=bill">Đồng ý đặt hàng </a>
+                                <a class="btn btn-danger" href="index.php?act=delCart">Xóa giỏ hàng</a>
+                            ';
+                        }else{
+                            echo "<p class='warning'>Hiện không có sản phẩm nào trong giỏ. Vui lòng thêm sản phẩm để tiếp tục đặt hàng !</p>";
+                        }
+                    } else {
+                        // Nếu người dùng chưa đăng nhập, hiển thị thông báo
+                        echo '<p class="warning">Vui lòng đăng nhập để đặt hàng.</p>';
                     }
-                } else {
-                    // Nếu người dùng chưa đăng nhập, hiển thị thông báo
-                    echo '<p class="warning">Vui lòng đăng nhập để đặt hàng.</p>';
-                }
-            ?>
+                ?>
+                <a class="btn btn-success" href="index.php">Tiếp tục mua hàng</a>
+            </div>
         </div>
     </div>
