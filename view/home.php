@@ -77,7 +77,6 @@
                                             <p>$'.$price.'</p>
                                         </div>
                                         <div class="prd-name">
-                                        
                                             <a href="'.$link_prd.'"> <h3>'.$prd_name.'</h3></a>
                                             <form action="index.php?act=cart" method="post">
                                             <input type="hidden" name="id" value="'.$pro_id.'">

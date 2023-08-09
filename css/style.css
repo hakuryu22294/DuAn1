@@ -501,11 +501,14 @@ position: relative;
     padding: 10px 20px;
     max-width: max-content;
     border-radius: 5px;
-    float: right;
 }
 
 .total-full p{
     margin: 0;
+}
+
+.right-tab{
+    float: right;
 }
 
 p.warning{

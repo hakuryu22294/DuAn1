@@ -148,7 +148,7 @@
                 include "view/qa.php";
                 break;
    case 'cart':
-    if (isset($_POST['addCart'])) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id = $_POST['id'];
         $name = $_POST['name'];
         $img = $_POST['img'];
