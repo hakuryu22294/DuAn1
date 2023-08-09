@@ -1,6 +1,5 @@
 <div class="container">
     <div class="box-admin space">
-        
             <div class="box-title">
                 <h2>Giỏ hàng</h2>
             </div>
@@ -43,28 +42,37 @@
                          }
                  ?>
              </tbody>
+             <tfoot>
+               <th scope="col-6">Tổng tiền</th>
+               <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+               <th scope="col-6"><?=$total_full?></th>
+             </tfoot>
             </table>
-            <div class="total-full">
-                <p>Tổng tiền: <span><?=$total_full?></span></p>
-            </div>
-            <div class="button-cart">
-                <?php
-                    if (isset($_SESSION['user'])) {
-                        // Nếu người dùng đã đăng nhập, hiển thị các nút "Đồng ý đặt hàng" và "Xóa giỏ hàng"
-                        if($itemsCount>0){
-                            echo '
-                                <a class="btn btn-primary" href="index.php?act=bill">Đồng ý đặt hàng </a>
-                                <a class="btn btn-danger" href="index.php?act=delCart">Xóa giỏ hàng</a>
-                            ';
-                        }else{
-                            echo "<p class='warning'>Hiện không có sản phẩm nào trong giỏ. Vui lòng thêm sản phẩm để tiếp tục đặt hàng !</p>";
+                <div class="button-cart">
+                    <?php
+                        if (isset($_SESSION['user'])) {
+                            // Nếu người dùng đã đăng nhập, hiển thị các nút "Đồng ý đặt hàng" và "Xóa giỏ hàng"
+                            if($itemsCount>0){
+                                echo '
+                                    <div class="button d-flex justify-content-between">
+                                        <div class="left-button">
+                                            <a class="btn btn-success" href="index.php">Tiếp tục mua hàng</a>
+                                            <a class="btn btn-danger" href="index.php?act=delCart">Xóa giỏ hàng</a>
+                                        </div>
+                                        <div class="right-button"><a class="btn btn-primary" href="index.php?act=bill">Đồng ý đặt hàng </a></div>
+                                    </div>
+                                ';
+                            }else{
+                                echo "<p class='warning'>Hiện không có sản phẩm nào trong giỏ. Vui lòng thêm sản phẩm để tiếp tục đặt hàng !</p>";
+                            }
+                        } else {
+                            // Nếu người dùng chưa đăng nhập, hiển thị thông báo
+                            echo '<p class="warning">Vui lòng đăng nhập để đặt hàng.</p>';
                         }
-                    } else {
-                        // Nếu người dùng chưa đăng nhập, hiển thị thông báo
-                        echo '<p class="warning">Vui lòng đăng nhập để đặt hàng.</p>';
-                    }
-                ?>
-                <a class="btn btn-success" href="index.php">Tiếp tục mua hàng</a>
+                    ?>
+                </div>
             </div>
         </div>
     </div>
