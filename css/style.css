@@ -287,6 +287,10 @@ select{
     margin-bottom: 24px !important;
 }
 
+.top-box img{
+    min-width: 100px;
+}
+
 .box-acc a,
 .box-acc p{
     color: #FFF;
@@ -443,9 +447,7 @@ footer{
     font-weight: bold;
 }
 
-.frmcontent table tbody td:first-child{
-    text-align: center;
-}
+
 
 .box-admin .notification{
     color: #e53637;
@@ -472,6 +474,46 @@ footer{
     color: #e53637;
     margin-bottom: 0;
     line-height: 26px;
+}
+
+.cart-badge {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    color: #e53637;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #fff;
+    line-height: 20px;
+    text-align: center;
+  }
+.cart-icon {
+position: relative;
+}
+
+.total-full{
+    background-color: #e53637;
+    color: #fff;
+    line-height: 30px;
+    padding: 10px 20px;
+    max-width: max-content;
+    border-radius: 5px;
+}
+
+.total-full p{
+    margin: 0;
+}
+
+.right-tab{
+    float: right;
+}
+
+p.warning{
+    color: #fff;
+    text-align: center;
 }
 
 /* .box-prd{
