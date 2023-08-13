@@ -8,10 +8,6 @@
             // Đoạn code PHP để lấy thông tin sản phẩm trong giỏ hàng từ session và hiển thị
             // Thay thế phần này bằng mã PHP để hiển thị thông tin giỏ hàng của bạn
             ?>
-            <?php 
-                $total_full = 0;
-                $itemsCount = 0;
-            ?>
     <div class="frmcontent">
         <div class=" frmcate-list">
              <table class="table">
@@ -26,6 +22,8 @@
              </thead>
              <tbody>
                  <?php
+                   $total_full = 0;
+                   $itemsCount = 0;
                      foreach($_SESSION['cart'] as $key => $cart){
                          $total = $cart[3] * $cart[4];
                          $total_full += $total;
@@ -76,3 +74,4 @@
             </div>
         </div>
     </div>
+</div>

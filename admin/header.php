@@ -43,6 +43,9 @@
                   <li class="nav-item">
                     <a class="nav-link" href="index.php?act=statitis">Thống Kê</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.php?act=listbill">Danh sách đơn hàng</a>
+                  </li>
                 </ul>
               </div>
             </div>

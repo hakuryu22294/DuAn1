@@ -9,6 +9,7 @@ html, body{
     font-family: "Mulish", sans-serif;
     line-height: 1.15px;
     background-color: #C9EEFF;
+
 }
 
 a{
@@ -51,6 +52,10 @@ header{
 
 .my-nav ul li.nav-item:hover a{
     color: #e53637;
+}
+
+.container{
+    height: 100%;
 }
 
 /* BANNER */
@@ -416,6 +421,9 @@ select{
 
 footer{
     background-color: #070720;
+    position: fixed;
+    bottom: -100px;
+    width: 100%;
 }
 
 
@@ -426,6 +434,7 @@ footer{
     border: 2px solid #e53637;
     border-radius: 5px;
     background-color: #070720;
+    margin-bottom: 100px;
 }
 
 .frmcontent{
@@ -511,10 +520,22 @@ position: relative;
     float: right;
 }
 
-p.warning{
+p.warning,p.inner{
     color: #fff;
     text-align: center;
 }
+
+p.success{
+    text-align: center;
+    color:greenyellow;
+}
+p.customer{
+    line-height: 28px;
+}
+
+
+
+
 
 /* .box-prd{
     margin-top: 24px;

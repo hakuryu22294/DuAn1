@@ -31,17 +31,23 @@
                                     $img_prd = $img_path_folder.$img;
                                     echo'
                                     <div class="col-4">
-                                        <div class="prd-items">
-                                            <a href="#"><img class="img-fluid w-100" src="'.$img_prd.'" alt=""></a>
-                                            <div class="price">
-                                                <p>$'.$price.'</p>
-                                            </div>
-                                            <div class="prd-name">
-                                                <a href="'.$link_prd.'"> <h3>'.$prd_name.'</h3></a>
-                                            </div>
+                                    <div class="prd-items">
+                                        <a href="#"><img class="img-fluid w-100" src="'.$img_prd.'" alt=""></a>
+                                        <div class="price">
+                                            <p>$'.$price.'</p>
+                                        </div>
+                                        <div class="prd-name">
+                                            <a href="'.$link_prd.'"> <h3>'.$prd_name.'</h3></a>
+                                            <form action="index.php?act=cart" method="post">
+                                            <input type="hidden" name="id" value="'.$pro_id.'">
+                                            <input type="hidden" name="name" value="'.$prd_name.'">
+                                            <input type="hidden" name="img" value="'.$img_prd.'">
+                                            <input type="hidden" name="price" value="'.$price.'">\
+                                            <input  type="submit" name="addCart" class="btn btn-success" value="Mua ngay">
+                                          </form>
                                         </div>
                                     </div>
-                                                                  
+                                </div>                             
                                     ';
                                 }
                             }else{

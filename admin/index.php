@@ -5,6 +5,7 @@
     include "../model/account.php";
     include "../model/comment.php";
     include "../model/statitis.php";
+    include "../model/cart.php";
     include "header.php";
 
     if(isset($_GET['act'])){
@@ -153,6 +154,17 @@
             case 'viewchart':
                 $stt_list = load_all_statitis();
                 include "statitis/chart.php";
+                break;
+            case 'listbill':
+                $list_bill = load_one_bill(0);
+                include 'bill/listbill.php';
+                break;
+            case 'delete-bill':
+                if(isset($_GET['id'])&&($_GET['id'])>0){
+                    delete_bill($_GET['id']);
+                }
+                $list_bill = load_one_bill(0);
+                include "bill/listbill.php";
                 break;
             default:
                 include "home.php";
